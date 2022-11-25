@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Changing : MonoBehaviour
@@ -30,12 +31,15 @@ public class Changing : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Q) && Physics.Raycast(ray, out hit))
         {
+            print(hit.collider.gameObject.tag);
+            //print(Scanned_Monster_);
             //check if hiting monster 
             foreach (string Monster_name in GameObject.FindWithTag("DataBase").GetComponent<Monster_Database>()
                          .Monster_List)
             {
                 if (hit.collider.gameObject.transform.tag == Monster_name)
                 {
+                    
                     IsHitingMonster = true;
                 }
             }
@@ -81,14 +85,14 @@ public class Changing : MonoBehaviour
         {
             Scanned_Monster = hit.collider.gameObject.transform.tag;
             Scanned_Monster_ = GameObject.FindWithTag("DataBase").GetComponent<Monster_Database>()
-                .MyDic[Scanned_Monster].GO;
+                .MyDic2[Scanned_Monster].GO;
             print("Finish Scan:" + Scanned_Monster);
         }
         
         //if currently you are in human state and finished scanning,then press P to change to the monster you've scanned  
         
        // if (Input.GetKey(KeyCode.E)&&(status==0)) 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (Scanned_Monster_)
             {
@@ -103,7 +107,12 @@ public class Changing : MonoBehaviour
         //if you are in the monster state,then press R to return human state
         if (Input.GetKey(KeyCode.R)&&(status==1))
         {
-            Instantiate(GameObject.FindWithTag("DataBase").GetComponent<Monster_Database>().Player_, this.transform.position, this.transform.rotation);
+            GameObject new_player = Instantiate(GameObject.FindWithTag("DataBase").GetComponent<Monster_Database>().Player_, this.transform.position, this.transform.rotation);
+            GameObject.FindWithTag("FollowCamera").GetComponent<CinemachineFreeLook>().Follow = new_player.transform;
+            GameObject.FindWithTag("FollowCamera").GetComponent<CinemachineFreeLook>().LookAt = new_player.transform;
+            new_player.GetComponent<PlayerMovement>().cam = GameObject.FindWithTag("MainCamera").transform;
+            new_player.transform.tag = "Player";
+            new_player.transform.name = "Player";
             Destroy(this.gameObject);
         }
 
@@ -112,12 +121,14 @@ public class Changing : MonoBehaviour
     public void ChangeToMonster()
     {
         GameObject new_player = Instantiate(Scanned_Monster_, this.transform.position, this.transform.rotation);
-        GameObject.FindWithTag("MainCamera").transform.parent = new_player.transform;
-        new_player.GetComponent<Changing>().enabled = true;
+        GameObject.FindWithTag("FollowCamera").GetComponent<CinemachineFreeLook>().Follow = new_player.transform;
+        GameObject.FindWithTag("FollowCamera").GetComponent<CinemachineFreeLook>().LookAt = new_player.transform;
+        new_player.GetComponent<PlayerMovement>().cam = GameObject.FindWithTag("MainCamera").transform;
+        //new_player.GetComponent<Changing>().enabled = true;
         new_player.GetComponent<Changing>().status = 1;
-        new_player.GetComponent<MonsterStatus>().enabled = false;
-        new_player.GetComponent<PlayerStatus>().enabled = true;
-        new_player.GetComponent<MonsterMove>().enabled = true;
+        //new_player.GetComponent<MonsterStatus>().enabled = false;
+        //new_player.GetComponent<PlayerStatus>().enabled = true;
+        //new_player.GetComponent<MonsterMove>().enabled = true;
         new_player.transform.tag = "Player";
         new_player.transform.name = "Player";
         Destroy(this.gameObject);

@@ -3,7 +3,17 @@ guid: ce72bc4c2cb85df4cbc409831c9ab84e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Player_: {fileID: 392927991671091257, guid: d593809ba7c4eef438af5f4126a0e61e, type: 3}
+  - Goblin_: {instanceID: 0}
+  - Wolf_: {instanceID: 0}
+  - Troll_: {instanceID: 0}
+  - Mutant_: {fileID: 8727197387422651518, guid: 854e34e0bae1fd041bf7d46829fe65e8, type: 3}
+  - Mutant_Player_: {fileID: 5074952910623220533, guid: 5aacbeb5ed175284283408cff67017a7, type: 3}
+  - Arachnid_: {fileID: 1835679359672502765, guid: 3833e736d2c646146b6d5147ebc2d765, type: 3}
+  - Arachnid_Player_: {fileID: 238905299734675596, guid: 372ceba7b96e187488180f9fc69ae11b, type: 3}
+  - Juggernaut_: {fileID: 6806437177162908334, guid: 5fbad69b99df904489281748904f7249, type: 3}
+  - Juggernaut_Player_: {fileID: 1488664038898988735, guid: 4106d1b431af67e488aaf8e9f38c9c6e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

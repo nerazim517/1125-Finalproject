@@ -18,10 +18,10 @@ public class Block
 
 public class Item_Database : MonoBehaviour
 {
-    public GameObject Block01_;
-    public GameObject Block02_;
-    public GameObject Block03_;
-    public GameObject Block04_;
+    //public GameObject Block01_;
+    //public GameObject Block02_;
+    //public GameObject Block03_;
+    //public GameObject Block04_;
     
     //(1)新增物品
     public GameObject Rock;
@@ -57,10 +57,10 @@ public class Item_Database : MonoBehaviour
             { "Snow", Snow_Icon }
         };
         
-        Block01.Block_ = Block01_;
-        Block02.Block_ = Block02_;
-        Block03.Block_ = Block03_;
-        Block04.Block_ = Block04_;
+        //Block01.Block_ = Block01_;
+        //Block02.Block_ = Block02_;
+        //Block03.Block_ = Block03_;
+        //Block04.Block_ = Block04_;
     }
 
     private void Update()
@@ -142,7 +142,7 @@ public class Item_Database : MonoBehaviour
         string Block = "Block";
         
         
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 0; i++)
         {
             string block_ = Block;
             if (i < 10)
@@ -159,7 +159,7 @@ public class Item_Database : MonoBehaviour
         
         
         
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 0; i++)
         {
             
             string block_ = Block;

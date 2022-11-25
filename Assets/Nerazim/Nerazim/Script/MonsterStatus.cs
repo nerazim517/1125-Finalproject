@@ -28,6 +28,6 @@ public class MonsterStatus : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameObject.FindWithTag("DataBase").GetComponent<Item_Database>().Spawn_Item(transform.tag,transform.position,transform.rotation);
+//        GameObject.FindWithTag("DataBase").GetComponent<Item_Database>().Spawn_Item(transform.tag,transform.position,transform.rotation);
     }
 }
