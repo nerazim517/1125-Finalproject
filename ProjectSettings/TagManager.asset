@@ -3,7 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Block02
+  - Block04
+  - Ground
+  - Orange
+  - DataBase
+  - Block03
+  - Block01
+  - Canvas
+  - Health_Bottle
+  - Wolf
+  - Snow
+  - Goblin
+  - Troll
+  - Rock
+  - Bullet
+  - Health_Pack
+  - FollowCamera
+  - Mutant
+  - Arachnid
+  - Juggernaut
   layers:
   - Default
   - TransparentFX
